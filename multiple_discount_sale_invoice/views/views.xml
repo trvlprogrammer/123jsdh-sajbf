@@ -33,19 +33,22 @@
 		</record>
 
 
-		<record id="discount_discount_search_view" model="ir.ui.view">
-			<field name="name">discount.discount.search</field>
-			<field name="model">discount.discount</field>
-			<field name="arch" type="xml">
-				<search string="Search">
-					<group expand="0" string="Group By...">
-						<filter string="Discount Type"
-							context="{'group_by':'discount_type'}" />
-					</group>
-				</search>
-			</field>
-		</record>
-
+		<record id="discount_discount_search_view321" model="ir.ui.view">
+            <field name="name">discount.discount.select</field>
+            <field name="model">discount.discount</field>
+            <field name="arch" type="xml">
+                <search string="Search Discount">
+                    <field name="name" string="Discount Name"/>
+                    <filter string="Fixed Amount" name="fixed_amount" domain="[('discount_type', '=', 'fixed_amount')]"/>
+                    <separator/>
+                    <filter string="Percentage" name="percentage" domain="[('discount_type', '=', 'percentage')]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Discount Type" name="discount_type" context="{'group_by': 'discount_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
 		<record id="action_discount_discount"
 			model="ir.actions.act_window">
@@ -54,7 +57,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="search_view_id"
-				ref="discount_discount_search_view" />
+				ref="discount_discount_search_view321" />
 			<field name="context">{}</field>
 			<field name="help" type="html">
 				<p class="oe_view_nocontent_create">
