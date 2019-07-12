@@ -20,7 +20,7 @@
     'version' : '12.0.1',
     'support' : 'alfatihridhont@gmail.com',
     'depends': ['base','sale_management'],
-    'images': ['images/main_screenshot.png'],
+    'images': ['images/main_screenshot.jpeg'],
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
