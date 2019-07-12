@@ -174,36 +174,7 @@ class AccountInvoiceInherit(models.Model):
 class SaleOrderInherit(models.Model):
     _inherit = "sale.order"
     
-#     
-#     @api.multi
-#     def _get_tax_amount_by_group(self):
-#         self.ensure_one()
-#         print ("aaaaaaaaaaa")
-#         
-#         res = {}
-#         for line in self.order_line:
-#             price_reduce = line.price_unit
-#             if line.multiple_discounts : 
-#                 discounts = line.multiple_discounts                
-#                 if line.type == 'percentage' :
-#                    for discount in discounts :                         
-#                        price_reduce = price_reduce * (1 - (discount.amount) / 100.0)                       
-#                 elif line.type == 'fixed_amount' :
-#                     for discount in discounts :                         
-#                        price_reduce = price_reduce - discount.amount
-#             taxes = line.tax_id.compute_all(price_reduce, quantity=line.product_uom_qty, product=line.product_id, partner=self.partner_shipping_id)['taxes']
-#             for tax in line.tax_id:
-#                 group = tax.tax_group_id
-#                 res.setdefault(group, {'amount': 0.0, 'base': 0.0})
-#                 for t in taxes:
-#                     if t['id'] == tax.id or t['id'] in tax.children_tax_ids.ids:
-#                         res[group]['amount'] += t['amount']
-#                         res[group]['base'] += t['base']
-#         res = sorted(res.items(), key=lambda l: l[0].sequence)
-#         res = [(l[0].name, l[1]['amount'], l[1]['base'], len(res)) for l in res]
-#         return res
-
-
+    
     def _amount_by_group(self):
         for order in self:
             currency = order.currency_id or order.company_id.currency_id
@@ -219,7 +190,6 @@ class SaleOrderInherit(models.Model):
                     elif line.type == 'fixed_amount' :
                         for discount in discounts :                         
                            price_reduce = price_reduce - discount.amount
-
                 taxes = line.tax_id.compute_all(price_reduce, quantity=line.product_uom_qty, product=line.product_id, partner=order.partner_shipping_id)['taxes']
                 for tax in line.tax_id:
                     group = tax.tax_group_id
