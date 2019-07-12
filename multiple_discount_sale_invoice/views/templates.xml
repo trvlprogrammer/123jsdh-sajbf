@@ -3,7 +3,7 @@
 		<template id="report_quotation_inherit_321"
 			inherit_id="sale.report_saleorder_document">
 			<xpath
-				expr="//table[@class='table table-condensed']//thead//tr//th[3]"
+				expr="//table[@class='table table-sm o_main_table']//thead//tr//th[3]"
 				position="after">
 				<th class="text-right">Disc(Fixed Amount)</th>
 				<th class="text-right">Disc(%)</th>
@@ -11,17 +11,17 @@
 			<xpath expr="//tbody[@class='sale_tbody']//tr//td[3]"
 				position="after">
 				<td class="text-right">
-					<t t-foreach = "l.multiple_discounts" t-as="disc">
+					<t t-foreach = "line.multiple_discounts" t-as="disc">
 						<t t-if="disc.discount_type == 'fixed_amount'">
-							<t t-if="l.multiple_discounts[0] != disc"> + </t>
+							<t t-if="line.multiple_discounts[0] != disc"> + </t>
 							<span t-field="disc.amount"/>
 						</t>
 					</t>
 				</td>
 				<td class="text-right">
-					<t t-foreach = "l.multiple_discounts" t-as="disc">
+					<t t-foreach = "line.multiple_discounts" t-as="disc">
 						<t t-if="disc.discount_type == 'percentage'">
-							<t t-if="l.multiple_discounts[0] != disc"> + </t>
+							<t t-if="line.multiple_discounts[0] != disc"> + </t>
 							<span t-field="disc.amount"/>
 						</t>
 					</t>
@@ -32,7 +32,7 @@
 		<template id="report_account_invoice_inherit_321"
 			inherit_id="account.report_invoice_document">
 			<xpath
-				expr="//table[@class='table table-condensed']//thead//tr//th[3]"
+				expr="//table[@class='table table-sm o_main_table']//thead//tr//th[3]"
 				position="after">
 				<th class="text-right">Disc(Fixed Amount)</th>
 				<th class="text-right">Disc(%)</th>
@@ -40,17 +40,17 @@
 			<xpath expr="//tbody[@class='invoice_tbody']//tr//td[3]"
 				position="after">
 				<td class="text-right">
-					<t t-foreach = "l.multiple_discounts" t-as="disc">
+					<t t-foreach = "line.multiple_discounts" t-as="disc">
 						<t t-if="disc.discount_type == 'fixed_amount'">
-							<t t-if="l.multiple_discounts[0] != disc"> + </t>
+							<t t-if="line.multiple_discounts[0] != disc"> + </t>
 							<span t-field="disc.amount"/>
 						</t>
 					</t>
 				</td>
 				<td class="text-right">
-					<t t-foreach = "l.multiple_discounts" t-as="disc">
+					<t t-foreach = "line.multiple_discounts" t-as="disc">
 						<t t-if="disc.discount_type == 'percentage'">
-							<t t-if="l.multiple_discounts[0] != disc"> + </t>
+							<t t-if="line.multiple_discounts[0] != disc"> + </t>
 							<span t-field="disc.amount"/>
 						</t>
 					</t>

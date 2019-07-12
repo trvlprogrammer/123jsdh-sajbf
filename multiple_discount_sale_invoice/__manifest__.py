@@ -17,11 +17,12 @@
     'license': 'OPL-1',
     'price' : '40',
     'currency' : 'EUR',
-    'version' : '11.0.1',
+    'version' : '12.0.1',
     'support' : 'alfatihridhont@gmail.com',
     'depends': ['base','sale_management'],
     'images': ['images/main_screenshot.png'],
     'data': [
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
