@@ -17,9 +17,9 @@
     'license': 'OPL-1',
     'price' : '40',
     'currency' : 'EUR',
-    'version' : '11.0.1',
+    'version' : '10.0.1',
     'support' : 'alfatihridhont@gmail.com',
-    'depends': ['base','sale_management'],
+    'depends': ['base','sale'],
     'images': ['images/main_screenshot.jpeg'],
     'data': [
         'security/ir.model.access.csv',

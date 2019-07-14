@@ -110,11 +110,11 @@
 		</record>
 
 
-		<menuitem id="discount_config1" name="Discount Configuration"
-			parent="sale.menu_sale_config" action="action_discount_discount" />
-		<menuitem id="discount_invoice_config1"
+		 <menuitem id="discount_config1" name="Discount Configuration"
+			parent="sales_team.menu_sale_config" action="action_discount_discount" />
+		<!-- <menuitem id="discount_invoice_config1"
 			name="Discount Configuration"
 			parent="account.menu_finance_configuration"
-			action="action_discount_discount" />
+			action="action_discount_discount" /> -->
 	</data>
 </odoo>
