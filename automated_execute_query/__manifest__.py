@@ -15,7 +15,7 @@
     'version': '11.0.1',    
     'license': 'AGPL-3',
     'depends': ['base'],
-    'images': ['images/main_screenshot.png'],
+    'images': ['images/main_screenshot.jpg'],
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
