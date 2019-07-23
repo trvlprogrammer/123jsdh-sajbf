@@ -14,6 +14,7 @@
     'category': 'Tools',
     'version': '11.0.1',    
     'license': 'AGPL-3',
+    'images': ['images/main_screenshot.jpg'],
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
