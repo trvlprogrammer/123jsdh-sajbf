@@ -1,0 +1,120 @@
+<odoo>
+  <data>
+	           <record model="ir.ui.view" id="automated_task_form_view">
+                <field name="name">automated.task.form</field>
+                <field name="model">automated.task</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Automated Task">
+	                    <sheet>
+	                        <div class="oe_title">
+		                        <h1 class="o_row">                    
+		                            <field name="name" placeholder="Automated Task Title..." required= "True"/>
+		                        </h1>
+		                    </div>
+		                    <group>
+		                    	<group>
+		                    		<field name="project_id"/>
+		                    		<field name="assigned_to" widget="many2many_tags" required= "True"/>
+		                    	</group>		                    	
+		                    	<group>
+		                    		<field name="start_date" required= "True"/>
+			                        <field name="end_date" required= "True"/>	                        
+			                        <field name="type" string = "Repeat Every" required= "True"/>
+			                        <field name="daily" attrs="{'invisible' : [('type','!=','day')]}"/>
+		                    	</group>		                    	
+		                    </group>                	       
+	                        <group>	    
+	                        	<group>
+	                        		<field name="monday" attrs="{'invisible' : [('type','!=','week')]}"/>                     
+			                        <field name="tuesday" attrs="{'invisible' : [('type','!=','week')]}"/>
+			                        <field name="wednesday" attrs="{'invisible' : [('type','!=','week')]}"/>
+			                        <field name="thursday" attrs="{'invisible' : [('type','!=','week')]}"/>
+	                        	</group>                    
+		                        <group>
+			                        <field name="friday" attrs="{'invisible' : [('type','!=','week')]}"/>
+			                        <field name="saturday" attrs="{'invisible' : [('type','!=','week')]}"/>
+			                        <field name="sunday" attrs="{'invisible' : [('type','!=','week')]}"/>
+		                        </group>
+	                        </group>
+	                        <div class= "font-weight-bold">
+	                        	<field name = "summary" readonly="True"/>
+	                        </div>
+	                        <notebook>
+	                        	<page name = "description" string = "Description">
+	                        		<field name = "description" string ="Description"/>
+	                        	</page>
+	                        	<page name = "task_created" string="Tasks">
+	                        		<field name="project_task">
+	                        			<tree create="false" edit="false">
+	                        				<field name="name"/>
+	                        				<field name="user_id"/>
+	                        				<field name="stage_id"/>
+	                        				<field name="active"/> 
+	                        			</tree>
+	                        		</field>
+	                        	</page>
+	                        	<page name="create_on" string = "Create On" groups= "base.group_no_one">
+	                        		<field name = "create_date_on" string ="will be created on : "/>
+	                        	</page>
+	                        </notebook>
+	                     </sheet>
+                    </form>
+                </field>
+            </record>
+            
+             <record model="ir.ui.view" id="automated_task_tree_view">
+                <field name="name">automated.task.tree</field>
+                <field name="model">automated.task</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <tree string="Automated Task">	                    
+	                        <field name="name"/>
+	                        <field name="assigned_to"/>
+	                        <field name="start_date"/>
+	                        <field name="end_date"/>	                        
+	                        <field name="type"/>	                                           
+                    </tree>
+                </field>
+            </record>
+            
+            <record id="automated_task_search_view321" model="ir.ui.view">
+            <field name="name">automated.task.select</field>
+            <field name="model">automated.task</field>
+            <field name="arch" type="xml">
+                <search string="Search Discount">
+                    <field name="name" string="Title"/>
+                    <filter string="Daily" name="daily" domain="[('type', '=', 'daily')]"/>
+                    <separator/>
+                    <filter string="Weekdays" name="weekdays" domain="[('type', '=', 'weekdays')]"/>
+                    <separator/>
+                    <filter string="Weekly" name="weekly" domain="[('type', '=', 'weekly')]"/>
+                    <separator/>
+                    <filter string="Monthly" name="monthly" domain="[('type', '=', 'monthly')]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Type" name="type" context="{'group_by': 'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="action_automated_task"
+			model="ir.actions.act_window">
+			<field name="name">Automated Task</field>
+			<field name="res_model">automated.task</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id"
+				ref="automated_task_search_view321" />
+			<field name="context">{}</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Create automated task here
+				</p>
+			</field>
+		</record>
+        		<menuitem id="automated_task_menu" name="Automated Tasks" parent="project.menu_main_pm" action="action_automated_task"/>
+        
+  </data>
+</odoo>
