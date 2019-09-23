@@ -1,0 +1,75 @@
+<odoo>
+	<data>
+		<record id="cron_report_creator_15_minutes" forcecreate='True' model="ir.cron">
+	      <field name="name">Report Creator 15 Minutes</field>	      
+	      <field eval="True" name="active"/>
+	      <field name="user_id" ref="base.user_root"/>
+	      <field name="interval_number">15</field>
+	      <field name="interval_type">minutes</field>
+	      <field name="numbercall">-1</field>
+	      <field name="model_id" ref="model_report_result"/>
+	      <field name="state">code</field>
+	      <field name="code">model.schedule_15_minutes()</field>
+		</record>
+		
+		<record id="cron_report_creator_30_minutes" forcecreate='True' model="ir.cron">
+	      <field name="name">Report Creator 30 Minutes</field>	      
+	      <field eval="True" name="active"/>
+	      <field name="user_id" ref="base.user_root"/>
+	      <field name="interval_number">30</field>
+	      <field name="interval_type">minutes</field>
+	      <field name="numbercall">-1</field>
+	      <field name="model_id" ref="model_report_result"/>
+	      <field name="state">code</field>
+	      <field name="code">model.schedule_30_minutes()</field>
+		</record>
+		
+		<record id="cron_report_creator_1_hour" forcecreate='True' model="ir.cron">
+	      <field name="name">Report Creator 1 Hour</field>	      
+	      <field eval="True" name="active"/>
+	      <field name="user_id" ref="base.user_root"/>
+	      <field name="interval_number">1</field>
+	      <field name="interval_type">hours</field>
+	      <field name="numbercall">-1</field>
+	      <field name="model_id" ref="model_report_result"/>
+	      <field name="state">code</field>
+	      <field name="code">model.schedule_1_hour()</field>
+		</record>
+		
+		<record id="cron_report_creator_6_hours" forcecreate='True' model="ir.cron">
+	      <field name="name">Report Creator 6 Hours</field>	      
+	      <field eval="True" name="active"/>
+	      <field name="user_id" ref="base.user_root"/>
+	      <field name="interval_number">6</field>
+	      <field name="interval_type">hours</field>
+	      <field name="numbercall">-1</field>
+	      <field name="model_id" ref="model_report_result"/>
+	      <field name="state">code</field>
+	      <field name="code">model.schedule_6_hours()</field>
+		</record>
+		
+		<record id="cron_report_creator_1_day" forcecreate='True' model="ir.cron">
+	      <field name="name">Report Creator 1 day</field>	      
+	      <field eval="True" name="active"/>
+	      <field name="user_id" ref="base.user_root"/>
+	      <field name="interval_number">1</field>
+	      <field name="interval_type">days</field>
+	      <field name="numbercall">-1</field>
+	      <field name="model_id" ref="model_report_result"/>
+	      <field name="state">code</field>
+	      <field name="code">model.schedule_1_day()</field>
+		</record>
+		
+		<record id="cron_report_creator_1_week" forcecreate='True' model="ir.cron">
+	      <field name="name">Report Creator 1 week</field>	      
+	      <field eval="True" name="active"/>
+	      <field name="user_id" ref="base.user_root"/>
+	      <field name="interval_number">1</field>
+	      <field name="interval_type">weeks</field>
+	      <field name="numbercall">-1</field>
+	      <field name="model_id" ref="model_report_result"/>
+	      <field name="state">code</field>
+	      <field name="code">model.schedule_1_week()</field>
+		</record>		
+	</data>
+</odoo>

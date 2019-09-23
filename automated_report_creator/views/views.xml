@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+               <record model="ir.ui.view" id="report_definition_inherit_form_view">
+                <field name="name">report.definition.form</field>
+                <field name="model">report.definition</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="report_creator.report_definition_form_view" />
+                <field name="arch" type="xml">
+                <field name="template_id" position="after">
+                	<field name="automatically_generated" string="Automatically Generated?"/>
+                	<field name="schedule" 
+                	attrs="{'invisible': [('automatically_generated', '=', False)]}" />
+                </field>                    
+                </field>
+            </record>
+  </data>
+</odoo>
